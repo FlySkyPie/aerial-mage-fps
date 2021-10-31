@@ -104,8 +104,18 @@ export const init = () => {
                 break;
 
             case 'Space':
-                if (player.canJump === true) player.velocity.y += 350;
-                player.canJump = false;
+                if (!player.flying) {
+                    player.flying = true;
+                    player.flyingDirection.y = 1;
+                    player.flyingDirection.x = 0;
+                    player.flyingDirection.z = 0;
+                } else {
+                    player.flying = false;
+                }
+
+
+                //if (player.canJump === true) player.velocity.y += 350;
+                //player.canJump = false;
                 break;
         }
     };
